@@ -1,0 +1,36 @@
+
+    <section id="scripts-page">
+      <div class="light">
+        {{#view Revolver.PlatformView}}
+          {{#if controller.content}}
+            {{#linkTo 'platformBuild' id='script-add' class='button' title='<?= $messages['create_new_script'] ?>'}}<span class="icon-plus"></span> <?= $messages['create_new_script'] ?>{{/linkTo}}
+
+            <div id="scripts">
+              {{#each script in controller.content}}
+                {{#view Revolver.PlatformScriptView}}
+                  <div {{bindAttr id="script.id"}} {{bindAttr data-protected="script.protected"}} class="script">
+                    <div class="script-toggle"></div>
+
+                    <h3 class="script-name">{{script.name}}</h3>
+                    <p class="script-description">{{script.description}}</p>
+
+                    <p class="script-created-at"><?= $messages['created_on'] ?> {{script.created_at_short}}</p>
+                    <a href="#" class="script-confirm-delete icon-cancel" title="Delete this script"></a>
+
+                    <input type="hidden" class="script-active" {{bindAttr value="script.active"}} />
+                  </div>
+                {{/view}}
+              {{/each}}
+            </div>
+          {{else}}
+            <div class="scripts-no-content">
+              <span class="icon-alert"></span>
+              <h4><?= $messages['scripts_empty_heading'] ?></h4>
+              <p><?= $messages['scripts_empty_description'] ?></p>
+              {{#linkTo 'platformBuild' id='script-add' class='button purple' title='<?= $messages['create_new_script'] ?>'}}<span class="icon-plus"></span> <?= $messages['create_new_script'] ?>{{/linkTo}}
+            </div>
+          {{/if}}
+        {{/view}}
+
+      </div>
+    </section>

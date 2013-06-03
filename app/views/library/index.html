@@ -1,0 +1,31 @@
+
+    <div class="col-left">
+      {{outlet tags}}
+
+      <section id="library-upload" class="drop dropspot" data-pending-text="<?= $messages['upload_metadata_pending'] ?>" data-save-text="<?= $messages['upload_metadata_save'] ?>" data-close-text="<?= $messages['upload_metadata_close'] ?>">
+        <span class="icon-upload-cloud"></span>
+        <p id="drop-heading"><?= $messages['add_to_library'] ?></p>
+        <p id="drop-instructions" data-text-a="<?= $messages['upload_drop_instructions'] ?>" data-text-b="<?= $messages['upload_save_instructions'] ?>"><?= $messages['upload_drop_instructions'] ?></p>
+      </section>
+
+      <p id="library-upload-nom" class="lulz">
+        <span>om</span>
+        <span>nom</span>
+        <span>nom</span>
+      </p>
+    </div>
+
+    <div class="col-right">
+      {{outlet media}}
+    </div>
+
+    <aside id="upload-details-clone" class="hidden">
+      <h4><?= $messages['helpful_advice'] ?></h4>
+      <ul>
+        <li>You can drop up to 25 files onto the upload box at once.</li>
+        <li>You can mix and match GIFs, sounds, and videos in one upload session.</li>
+        <li>Animated GIFs cannot be larger than <strong>2 MB</strong>. Media uploads cannot be larger than <strong>10 MB</strong>.</li>
+        <li>Accepted video formats are currently <strong>.mp4</strong> and <strong>.m4v</strong>. More codec support will be added later.</li>
+        <li>Never put salt in your eyes.</li>
+      </ul>
+    </aside>

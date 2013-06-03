@@ -1,0 +1,22 @@
+
+      <section id="library-tags" class="light no-top">
+        <h3><?= $messages['browse_tag_sound'] ?></h3>
+        {{#view Revolver.LibraryTagsView}}
+          {{#if controller.content}}
+            <ul>
+              {{#each tag in controller.content}}
+                {{#view Revolver.LibraryTagView}}
+                  <li class="library-tag">
+                    <a href="#" data-name="{{tag.name}}">{{tag.name}} <span class="library-tag-confirm-delete icon-cancel"></span></a>
+                  </li>
+                {{/view}}
+              {{/each}}
+            </ul>
+          {{else}}
+            <div class="library-tags-no-content">
+              <span class="icon-alert"></span>
+              <p><?= $messages['no_tags'] ?></p>
+            </div>
+          {{/if}}
+        {{/view}}
+      </section>

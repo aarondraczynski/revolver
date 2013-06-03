@@ -1,0 +1,43 @@
+
+    <section id="library-bar" class="light gradient">
+      <ul id="library-nav">
+        <li id="library-gifs-nav">
+          {{#linkTo 'libraryGifs'}}<span class="icon-picture"></span> <?= $messages['media_gif_plural_cap'] ?>{{/linkTo}}
+        </li>
+        <li id="library-sounds-nav">
+          {{#linkTo 'librarySounds'}}<span class="icon-volume-up"></span> <?= $messages['media_sound_plural_cap'] ?>{{/linkTo}}
+        </li>
+        <li id="library-videos-nav">
+          {{#linkTo 'libraryVideos'}}<span class="icon-video"></span> <?= $messages['media_video_plural_cap'] ?>{{/linkTo}}
+        </li>
+      </ul>
+
+      <div id="library-search">
+        <span class="icon-search"></span>
+        {{#view Revolver.LibrarySearchInputView id="library-search-box" class="search" placeholder="<?= $messages['search_placeholder_sound'] ?>" data-text-gif="<?= $messages['search_placeholder_gif'] ?>" data-text-sound="<?= $messages['search_placeholder_sound'] ?>" data-text-video="<?= $messages['search_placeholder_video'] ?>"}}{{/view}}
+        {{#view Revolver.LibrarySearchClear}}<span class="icon-cancel"></span>{{/view}}
+      </div>
+
+      <div id="library-sort-gifs" class="hidden">
+        <p><?= $messages['sort_media_by'] ?></p>
+        <select id="sort-media-by">
+          <option value="name-asc"><?= $messages['sort_name_asc'] ?></option>
+          <option value="name-desc"><?= $messages['sort_name_desc'] ?></option>
+          <option value="created-at-asc"><?= $messages['sort_created_at_asc'] ?></option>
+          <option value="created-at-desc"><?= $messages['sort_created_at_desc'] ?></option>
+        </select>
+      </div>
+
+      <div id="library-sort-videos" class="hidden">
+        <p><?= $messages['sort_media_by'] ?></p>
+        <select id="sort-media-by">
+          <option value="name-asc"><?= $messages['sort_name_asc'] ?></option>
+          <option value="name-desc"><?= $messages['sort_name_desc'] ?></option>
+          <option value="duration-asc"><?= $messages['sort_duration_asc'] ?></option>
+          <option value="duration-desc"><?= $messages['sort_duration_desc'] ?></option>
+          <option value="created-at-asc"><?= $messages['sort_created_at_asc'] ?></option>
+          <option value="created-at-desc"><?= $messages['sort_created_at_desc'] ?></option>
+        </select>
+      </div>
+
+    </section>

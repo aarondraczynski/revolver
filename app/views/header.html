@@ -1,0 +1,17 @@
+
+      <header>
+        <div class="wrapper">
+          {{#linkTo 'index' id='logo'}}<?= $messages['revolver_brand'] ?>{{/linkTo}}
+
+          <nav>
+            <ul>
+              <li>
+                {{#linkTo 'library' id='nav-library'}}<?= $messages['section_library'] ?>{{/linkTo}}
+              </li>
+              <li>
+                {{#linkTo 'platform' id='nav-platform'}}<?= $messages['section_platform'] ?>{{/linkTo}}
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>

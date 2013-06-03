@@ -1,0 +1,72 @@
+
+    <section id="scripts-builder">
+      <form class="light">
+        <h1><?= $messages['script_builder_heading'] ?></h1>
+
+        <div id="script-builder-info">
+          <span class="icon-attention"></span> <?= $messages['script_builder_notice'] ?>
+        </div>
+
+        <!-- <fieldset>
+          <label id="room-scope-label" for="room-scope"><?= $messages['script_builder_new_message'] ?></label>
+          <select id="room-scope" class="no-right-spacing">
+            <option value="room-scope-all"><?= $messages['script_builder_new_message_any_room'] ?></option>
+            <option value="room-scope-specific"><?= $messages['script_builder_new_message_specific_room'] ?></option>
+          </select>
+          <input type="text" id="room-scope-number" placeholder="<?= $messages['script_builder_campfire_room_id'] ?>" class="hidden" />.
+        </fieldset> -->
+
+        <fieldset>
+          <label for="message-scope"><?= $messages['script_builder_if_message'] ?></label>
+          <select id="message-scope">
+            <option value="message-scope-start"><?= $messages['script_builder_message_scope_start'] ?></option>
+            <option value="message-scope-contains"><?= $messages['script_builder_message_scope_contains'] ?></option>
+            <option value="message-scope-exactly"><?= $messages['script_builder_message_scope_exactly'] ?></option>
+          </select>
+          <input type="text" id="message-match" /><span id="ellipsis">...</span>
+        </fieldset>
+
+        <!-- <fieldset>
+          <input type="radio" name="response-type" id="response-type-insert" value="response-type-insert" checked /> <label for="response-type-insert"><?= $messages['script_builder_response_type_insert'] ?></label>
+          <textarea id="response-insert-html"></textarea>
+          <span class="note"><?= $messages['script_builder_response_type_insert_note'] ?></span>
+        </fieldset> -->
+
+        <fieldset>
+          <!-- <input type="radio" name="response-type" id="response-type-replace" value="response-type-replace" /> -->
+          <label for="response-type-replace"><?= $messages['script_builder_replace'] ?></label>
+          <select id="response-scope">
+            <option value="response-scope-this"><?= $messages['script_builder_response_scope_this'] ?></option>
+            <option value="response-scope-previous"><?= $messages['script_builder_response_scope_previous'] ?></option>
+          </select>
+          <?= $messages['script_builder_replace_with'] ?>
+          <textarea id="response-replace-html"></textarea>
+          <span class="note"><?= $messages['script_builder_replace_note'] ?></span>
+        </fieldset>
+
+        <!-- <fieldset>
+          <input type="radio" name="response-type" id="response-type-post" value="response-type-post" /> <label for="response-type-post"><?= $messages['script_builder_response_type_post'] ?></label>
+          <input type="url" id="response-external-url" /><br />
+
+          <input type="checkbox" id="response-external-callback" />
+          <label id="response-external-callback-label" for="response-external-callback"><?= $messages['script_builder_response_external_callback'] ?></label>
+          <textarea id="response-external-callback-html"></textarea>
+          <span class="note"><?= $messages['script_builder_response_type_post_note'] ?></span>
+        </fieldset> -->
+
+        <fieldset id="script-meta">
+          <ul>
+            <li>
+              <label for="script-name"><?= $messages['script_name'] ?></label>
+              <input type="text" id="script-name" maxlength="30" />
+            </li>
+            <li>
+              <label for="script-description"><?= $messages['script_description'] ?></label>
+              <input type="text" id="script-description" maxlength="255" />
+            </li>
+          </ul>
+
+          <a href="#" id="script-save" class="button green" title="<?= $messages['script_builder_save'] ?>"><?= $messages['script_builder_save'] ?></a>
+        </fieldset>
+      </form>
+    </section>

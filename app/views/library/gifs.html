@@ -1,0 +1,40 @@
+
+      <section id="library-gifs-page" class="container light clearfix" data-context="gifs">
+        <table id="library-gifs">
+          <thead>
+            <tr>
+              <th class="th-id hidden">ID</th>
+              <th class="th-name">Name</th>
+              <th class="th-remote-name hidden">Remote</th>
+              <th class="th-tags hidden">Tags</th>
+              <th class="th-created-at">Uploaded on</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+        <div class="loading">
+          <span class="icon-papermodelplane"></span>
+          <span class="icon-papermodelplane"></span>
+          <span class="icon-papermodelplane"></span>
+          <span class="icon-papermodelplane"></span>
+        </div>
+
+        <div id="library-media-no-results" class="library-media-no-content">
+          <span class="icon-alert"></span>
+          <h4><?= $messages['media_no_results_heading'] ?></h4>
+          <p><?= $messages['media_no_results_description'] ?></p>
+        </div>
+
+        <div id="library-media-empty" class="library-media-no-content">
+          <span class="icon-alert"></span>
+          <h4><?= $messages['media_gifs_empty_heading'] ?></h4>
+          <p><?= $messages['media_empty_description'] ?></p>
+        </div>
+      </section>
+
+      <section class="light development-status" style="height: 93px">
+        <h3><span class="icon-tag"></span> <?= $messages['helpful_advice'] ?></h3>
+        <p>Don't go overboard with tags. Only add tags for keywords that you think other users might actually search for, and re-use existing tags where possible. Remember, the more tags you add, the longer (and potentially less useful) the "Browse by tag" column becomes.</p>
+      </section>

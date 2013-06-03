@@ -1,0 +1,55 @@
+
+      <section id="library-sounds-page" class="container light clearfix" data-context="sounds">
+        <table id="library-sounds">
+          <thead>
+            <tr>
+              <th class="th-id hidden">ID</th>
+              <th class="th-name">Name</th>
+              <th class="th-duration">Duration</th>
+              <th class="th-tags hidden">Tags</th>
+              <th class="th-created-at">Uploaded on</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+        <div class="loading">
+          <span class="icon-papermodelplane"></span>
+          <span class="icon-papermodelplane"></span>
+          <span class="icon-papermodelplane"></span>
+          <span class="icon-papermodelplane"></span>
+        </div>
+
+        <div id="library-media-no-results" class="library-media-no-content">
+          <span class="icon-alert"></span>
+          <h4><?= $messages['media_no_results_heading'] ?></h4>
+          <p><?= $messages['media_no_results_description'] ?></p>
+        </div>
+
+        <div id="library-media-empty" class="library-media-no-content">
+          <span class="icon-alert"></span>
+          <h4><?= $messages['media_sounds_empty_heading'] ?></h4>
+          <p><?= $messages['media_empty_description'] ?></p>
+        </div>
+      </section>
+
+      <section class="light development-status" style="height: 93px">
+        <h3><span class="icon-attention"></span> <?= $messages['system_notice'] ?></h3>
+        <p>Currently, only .mp3 files are allowed for sound uploads. Revolver has been built to support additional audio formats and the upload system will soon be changed to reflect this. Thanks for your patience. You're all right.</p>
+      </section>
+
+      <!-- <aside id="library-sound-clone" class="hidden">
+        <td>
+          <div class="left">
+            <div class="name"></div>
+            <div class="tags"></div>
+          </div>
+          <div class="right">
+            <audio class="clearfix" preload="none" controls></audio>
+            <p class="duration"></p>
+            <p class="from"></p>
+            <span class="library-sound-confirm-delete icon-cancel"></span>
+          </div>
+        </td>
+      </aside> -->

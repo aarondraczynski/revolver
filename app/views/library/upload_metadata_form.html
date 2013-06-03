@@ -1,0 +1,28 @@
+
+    <aside id="upload-metadata-form" class="hidden">
+      <div class="preview file-preview">
+        <div class="details">
+          <span class="replace-icon"></span>
+          <div class="filename"><span></span></div>    
+        </div>
+        <div class="metadata">
+          <ul>
+            <li>
+              <label for="upload-metadata-name-"><?= $messages['upload_metadata_name'] ?></label>
+              <input type="text" id="upload-metadata-name-" class="upload-metadata-name" maxlength="20" pattern="[a-zA-Zd]+" />
+              <span class="rules"><?= $messages['upload_metadata_name_rules'] ?></span>
+            </li>
+            <li>
+              <label for="upload-metadata-tags-"><?= $messages['upload_metadata_tags'] ?></label>
+              <input type="text" id="upload-metadata-tags-" class="library-atom-tag-input" maxlength="20" pattern="[a-zA-Zds]+" placeholder="<?= $messages['enter_new_tag'] ?>" disabled />
+              <span class="rules"><?= $messages['upload_metadata_tags_rules'] ?></span>
+            </li>
+          </ul>
+        </div>
+        <div class="tags clearfix"></div>
+        <div class="progress"><span class="upload"></span></div>
+        <div class="success-mark"><span>Success</span></div>
+        <div class="error-mark"><span>Error</span></div>
+        <div class="error-message"><span></span></div>
+      </div>
+    </aside>
