@@ -11,7 +11,7 @@ class SoundsSeeder extends Seeder {
     // Delete all existing sounds
     // DB::table('sounds')->delete();
 
-    $path = "/var/www/public/libraries/pastfuture/sounds/";
+    $path = "/var/www/public/libraries/user/sounds/";
 
     // If the wildcard operator is not present, add it to the end
     $dir = (!strstr($path, "*") || $path == "./") ? $path . "*" : $path;
