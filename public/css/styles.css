@@ -2376,7 +2376,7 @@ nav a:hover {
   width: 115px;
   padding: 2px 9px;
   margin: 0 5px 6px 0;
-  background: #fdfdfd;
+  background: #fff;
   -moz-box-shadow: inset 0px 1px 1px #ddd;
   -webkit-box-shadow: inset 0px 1px 1px #ddd;
   box-shadow: inset 0px 1px 1px #ddd;
@@ -3860,11 +3860,11 @@ footer p {
 
   *margin-top: -1px !important;
   vertical-align: top !important;
-  background-color: transparent !important;
+  /* background-color: transparent !important; */
   /* ie6-8 doesn't fire hover and click events for transparent elements
      for a workaround, use a 1x1 transparent gif */
 
-  background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) !important;
+  /* background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) !important; */
 }
 
 .tt-hint {
