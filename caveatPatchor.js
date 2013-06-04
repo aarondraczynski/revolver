@@ -441,7 +441,7 @@ Campfire.Revolver = Class.create({
           }
         }, false);
         window.scrollTo(0, document.body.scrollHeight);
-      } else if (first === '/combo ' && volume === false) {
+      } else if (first === '/combo' && volume === false) {
         body.innerHTML = '<span style="color: #888"><em>Played a combo. If you turned off <strong>/mute</strong>, you would\'ve seen it.</em></span>';
       }
 
