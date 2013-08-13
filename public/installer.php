@@ -38,6 +38,7 @@ function getDefaultInstallationDirectory()
         directoryError('Cannot determine default install path.');
     }
 
+    $propaneLocation = '/Library/Application Support/Propane/unsupported';
     $directory = $userdata['dir'] . $propaneLocation;
 
     if (!is_dir($directory)) {
