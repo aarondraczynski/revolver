@@ -58,8 +58,8 @@ function directoryError($message)
 
 function install($installDirectory)
 {
-    $fileName = 'caveatPatchor.js.tmp';
-    $writePath = $installDirectory . $fileName;
+    $fileName = '/caveatPatchor.js';
+    $writePath = rtrim($installDirectory . $fileName, '/');
 
     $url = 'https://raw.github.com/aarondraczynski/revolver/master/caveatPatchor.js';
 
