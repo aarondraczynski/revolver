@@ -68,10 +68,10 @@ MySQL database credentials should be supplied in _app/config/database.php_. A SQ
 A seeder script (_app/database/seeds/SoundsSeeder.php_) is provided for taking an existing set of .mp3 files on the server and processing them into the Revolver database.
 
 #### Install dependencies
-In the Revolver directory on your server, run _php composer.phar install_ on the command line to download the Laravel framework and necessary dependencies.
+In the Revolver directory on your server, invoke Composer by running _php composer.phar install_ on the command line to download the Laravel framework and necessary dependencies.
 
 #### Apache DocumentRoot
-You'll need to change your web server's document root path to the _public_ folder, as per the default behavior of the Laravel framework. In your Apache virtual host config, make sure your DocumentRoot is set to /var/www/public. If you do not wish to do this, consult the Laravel forums for [some workarounds](http://forums.laravel.io/viewtopic.php?pid=48975).
+You'll need to change your web server's document root path to the _public_ folder, as per the [expected behavior of the Laravel framework](http://laravel.com/docs/installation#configuration). In your Apache virtual host config, make sure DocumentRoot is set to the "public" directory path (i.e. /var/www/public). If you do not wish to do this, consult the Laravel forums for [some workarounds](http://forums.laravel.io/viewtopic.php?pid=48975).
 
 #### Set permissions
 Ensure the following files/paths are writable on the server:
@@ -82,7 +82,7 @@ Ensure the following files/paths are writable on the server:
 * public/libraries/user/videos/
 
 #### Client installation
-Chat participants will each need a copy of **caveatPatchor.js** on their system (included), with line 16 edited to reflect the URL where you installed the Revolver Web Companion. The JS file should be dropped into Propane's _~/Library/Application Support/Propane/unsupported/_ folder. This file is what enables Propane to play media and process commands from your Revolver installation.
+Chat participants will each need a copy of **caveatPatchor.js** on their Mac (included in this repository), with line 16 edited to reflect the URL where you installed the Revolver Web Companion. The JS file should be dropped into Propane's _~/Library/Application Support/Propane/unsupported/_ folder. This file is what enables [Propane](http://propaneapp.com/) to play media and process commands from your Revolver installation.
 
 ---
 
@@ -106,4 +106,4 @@ Chat participants will each need a copy of **caveatPatchor.js** on their system 
 
 * **Why do I need Propane to use Revolver?**
 
-  Revolver was initially developed as a userscript for Propane, and even though it has evolved significantly, it still relies on Propane's scripting layer to insert itself into the chat room to play media and run commands. A browser extension that enables Revolver in the standard Campfire web client is in development.
+  Revolver was initially developed as a userscript for [Propane](http://propaneapp.com/), and even though it has evolved significantly, it still relies on Propane's scripting layer to insert itself into the chat room to play media and run commands. A browser extension that enables Revolver in the standard Campfire web client is in development.
