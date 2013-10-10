@@ -60,21 +60,20 @@ Revolver was built using the following technologies:
 ---
 
 ### Installation
-
 Before you setup the Revolver Web Companion, ensure that your server environment is compatible with the technologies listed above.
 
-** Create database **
+#### Create database
 MySQL database credentials should be supplied in _app/config/database.php_. A SQL database dump is included for schema generation. Importantly, this database dump includes records for Revolver's built-in scripts in the **scripts** table.
 
 A seeder script (_app/database/seeds/SoundsSeeder.php_) is provided for taking an existing set of .mp3 files on the server and processing them into the Revolver database.
 
-** Install dependencies **
+#### Install dependencies
 In the Revolver directory on your server, run _php composer.phar install_ on the command line to download the Laravel framework and necessary dependencies.
 
-** Apache DocumentRoot **
+#### Apache DocumentRoot
 You'll need to change your web server's document root path to the _public_ folder, as per the default behavior of the Laravel framework. In your Apache virtual host config, make sure your DocumentRoot is set to /var/www/public. If you do not wish to do this, consult the Laravel forums for [some workarounds](http://forums.laravel.io/viewtopic.php?pid=48975).
 
-** Set permissions **
+#### Set permissions
 Ensure the following files/paths are writable on the server:
 
 * public/libraries/payload.js
@@ -82,8 +81,7 @@ Ensure the following files/paths are writable on the server:
 * public/libraries/user/sounds/
 * public/libraries/user/videos/
 
-** Client installation **
-
+#### Client installation
 Chat participants will each need a copy of **caveatPatchor.js** on their system (included), with line 16 edited to reflect the URL where you installed the Revolver Web Companion. The JS file should be dropped into Propane's _~/Library/Application Support/Propane/unsupported/_ folder. This file is what enables Propane to play media and process commands from your Revolver installation.
 
 ---
