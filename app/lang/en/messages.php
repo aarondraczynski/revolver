@@ -2,8 +2,8 @@
 
 return array(
   'revolver_brand' => 'Revolver',
-  'revolver_version_number' => '1.0',
-  'revolver_version_name' => 'Cambie',
+  'revolver_version_number' => '1.1',
+  'revolver_version_name' => 'Hastings',
   'revolver_meta_description' => 'Revolver is a media player and scripting platform for 37signals\' Campfire chat service.',
   'revolver_meta_keywords' => 'revolver, campfire, propane, scripting, bot, papermodelplane, aaron, draczynski',
   'revolver_meta_author' => 'Aaron Draczynski',
@@ -83,6 +83,8 @@ return array(
   'scripts_empty_description' => 'You should be the first. Click the button below to get started.',
 
   'create_new_script' => 'Create new script',
+  'import_new_script' => 'Import script',
+  'delete_script' => 'Delete this script',
 
   'script_builder_heading' => 'Script builder',
   'script_builder_notice' => 'This script building tool was rushed for release and will become significantly more robust in the next version.',

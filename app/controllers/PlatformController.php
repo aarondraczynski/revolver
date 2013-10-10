@@ -18,6 +18,7 @@ class PlatformController extends BaseController {
       $response[] = array(
         'id'               => 'script-' . $script->id,
         'active'           => $script->active,
+        'delayed'          => $script->delayed,
         'protected'        => $script->protected,
         'name'             => $script->name,
         'description'      => $script->description,
@@ -53,6 +54,7 @@ class PlatformController extends BaseController {
       // Create new script record
       $script = new Script;
       $script->active = 1;
+      $script->delayed = 0;
       $script->protected = 0;
       $script->name = Input::get('script_name');
       $script->description = Input::get('script_description');
@@ -85,11 +87,11 @@ class PlatformController extends BaseController {
           if (Input::get('response_scope') == 'response-scope-previous') {
             $markup = str_replace("'", "\'", Input::get('response_replace_html'));
             $markup = preg_replace('/\[\[message\]\]/', '\' + msgs[i - 1].innerHTML + \'', $markup);
-            $output .= "msgs[i - 1].innerHTML = '" . $markup . "';";
+            $output .= "msgs[i - 1].innerHTML = '" . trim($markup) . "';";
           } else {
             $markup = str_replace("'", "\'", Input::get('response_replace_html'));
             $markup = preg_replace('/\[\[message\]\]/', '\' + msgs[i].innerHTML + \'', $markup);
-            $output .= "msgs[i].innerHTML = '" . $markup . "';";
+            $output .= trim("msgs[i].innerHTML = '" . trim($markup) . "';");
           }
       //     break;
       //   case 'response-type-post':
@@ -165,6 +167,12 @@ class PlatformController extends BaseController {
       // Retrieve matching script
       $id = Input::get('id');
       $script = Script::find($id);
+
+      // Prevent deletion of protected scripts
+      if ($script->protected == 1) {
+        return Response::json(array('error' => 'This script cannot be deleted.'));
+      }
+
       $name = $script->name;
 
       // Delete script record
@@ -214,23 +222,33 @@ text=text.replace(/&lt;tiny&gt;(.*?)&lt;\/tiny&gt;/,'<strong style=\"font-size: 
     foreach ($scripts as $script) {
       $script_ids[] = array(
         'id'        => $script->id,
+        'delayed' => $script->delayed,
         'protected' => $script->protected
       );
     }
 
     // Retrieve script contents and append to payload output
     for ($i = 0; $i < count($script_ids); $i++) {
-      if ($script_ids[$i]['protected'] == 1) {
-        $file = fopen('libraries/revolver/scripts/' . $script_ids[$i]['id'] . '.js', 'rb');
-      } else {
+      if ($script_ids[$i]['delayed'] == 0) {
         $file = fopen('libraries/user/scripts/' . $script_ids[$i]['id'] . '.js', 'rb');
+        $output .= stream_get_contents($file);
+        fclose($file);
       }
-      $output .= stream_get_contents($file);
-      fclose($file);
     }
 
     // End of payload applies text formatting
-    $output .= "var cvt=new Showdown.converter(),out=cvt.makeHtml(msgs[i].innerHTML);msgs[i].innerHTML=out;msgs[i].innerHTML=out;msgs[i].setAttribute('data-parsed','true');}}";
+    $output .= "var cvt=new Showdown.converter(),out=cvt.makeHtml(msgs[i].innerHTML);msgs[i].innerHTML=out;msgs[i].innerHTML=out;msgs[i].setAttribute('data-parsed','true');}";
+
+    // Delayed scripts are outputted down here
+    for ($i = 0; $i < count($script_ids); $i++) {
+      if ($script_ids[$i]['delayed'] == 1) {
+        $file = fopen('libraries/user/scripts/' . $script_ids[$i]['id'] . '.js', 'rb');
+        $output .= stream_get_contents($file);
+        fclose($file);
+      }
+    }
+
+    $output .= "}";
 
     // Write payload file
     $payload = fopen('libraries/payload.js', 'w');

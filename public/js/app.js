@@ -72,6 +72,7 @@ Array.prototype.remove = function(elem) {
     this.route('libraryVideos', {path: '/library/videos'});
     this.route('platform', {path: '/platform'});
     this.route('platformBuild', {path: '/platform/build'});
+    this.route('platformImport', {path: '/platform/import'});
     // this.route('statistics');
   });
 
@@ -1999,6 +2000,8 @@ Array.prototype.remove = function(elem) {
                   setTimeout(function() {
                     gifsTable.fnStandingRedraw();
                   }, 1300);
+
+                  tagArray = [];
                 }
 
                 // Remove tag from GIF tag cache
@@ -2013,6 +2016,7 @@ Array.prototype.remove = function(elem) {
                 for (var i = 0; i < matches.length; i++) {
                   // Remove tag from library sounds table data
                   tags = soundsTable.fnGetData(matches[i], 3);
+
                   for (var j = 0; j < tags.length; j++) {
                     if (tags[j].name !== name) {
                       tagArray.push({'id': tags[j].id, 'name': tags[j].name});
@@ -2024,6 +2028,8 @@ Array.prototype.remove = function(elem) {
                   setTimeout(function() {
                     soundsTable.fnStandingRedraw();
                   }, 1300);
+
+                  tagArray = [];
                 }
 
                 // Remove tag from sound tag cache
@@ -2049,6 +2055,8 @@ Array.prototype.remove = function(elem) {
                   setTimeout(function() {
                     videosTable.fnStandingRedraw();
                   }, 1300);
+
+                  tagArray = [];
                 }
 
                 // Remove tag from video tag cache
@@ -2942,7 +2950,7 @@ Array.prototype.remove = function(elem) {
       }
     }
 
-    if (e.target.id === 'message-scope') {
+    if (e.target.id === 'message-scope' || e.target.id === 'response-scope') {
       e.target.nextElementSibling.focus();
     }
   });

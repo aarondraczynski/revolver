@@ -13,5 +13,5 @@
 			"app/tests/TestCase.php"
 		]
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "stable"
 }

@@ -10,30 +10,33 @@ by Aaron Draczynski
 
 Revolver is a media player and scripting platform for 37signals' Campfire chat service.
 
+* Create an organized library of animated GIFs, sounds, and video clips for playback within your chat room.
+* Write custom scripts and applications that are triggered by certain commands or keywords in messages.
+
 This codebase is for the Revolver Web Companion, which you can install on a server for shared use within your organization.
 
-Currently, Revolver is only compatible with the [Propane](http://propaneapp.com/) Campfire chat client for Mac, which provides limited user-scripting support that Revolver needs. While Revolver itself lives mainly on the server, a separate JavaScript file for Propane called **caveatPatchor.js** (included) needs to be installed on the client to handle local media playback and processing of new scripts. A browser extension is in development which will enable Revolver functionality and scripting inside of the standard Campfire web-based client.
-
 ### Revolver Web Companion
-The Revolver web companion makes it easy to upload and manage media for sharing in chat.
+The Revolver Web Companion makes it easy to upload and manage media for sharing in chat.
 
-* A GIF, sound, and video library for your team.
-* Drag and drop to upload new media to the library.
+* A centralized GIF, sound, and video library for your team.
+* Drag and drop to upload new media files to the library.
 * The upload area says "om nom nom" when you drop a file on it (killer feature).
-* Add tags to GIFs, videos, and sounds.
-* Instantly search through media in library -- results appear as you type, no waiting.
+* Add tags to your GIFs, sounds, and videos.
+* Instantly search through media in the library -- results appear as you type, no waiting.
 * Browse media by tags.
-* Sort media by name, duration, uploader, or upload date.
+* Sort media by name, duration, or upload date.
 * Preview media from within the library interface.
 * Seeder script makes it easy to jumpstart your library with an existing collection of .mp3 sound bites (GIF and video importers coming soon).
 
 ### Revolver Platform
-The Revolver platform makes it simple to extend Campfire.
+Inside of the Web Companion you'll find the Platform management screen, which makes it simple to extend Campfire with your own custom scripts and applications.
 
 * No command line, code commits, or deploys -- Revolver lets you build a script and launch it with one click.
 * Create simple modifiers that re-format or re-style a message when users type a certain phrase or command.
 * Create more robust scripts that are activated when users type a certain phrase or command.
 * Pass data to a third-party server for processing and response for more dynamic applications.
+
+Currently, Revolver is only compatible when used with the [Propane](http://propaneapp.com/) Campfire chat client for Mac. Propane provides limited user-scripting support that Revolver needs. While Revolver itself lives mainly on the server, a separate JavaScript file for Propane called **caveatPatchor.js** (included) needs to be installed on the client to handle local media playback and processing of new scripts. A browser extension is in development which will enable Revolver functionality and scripting inside of the standard Campfire web-based client.
 
 ---
 
@@ -58,10 +61,20 @@ Revolver was built using the following technologies:
 
 ### Installation
 
-MySQL database credentials should be supplied in _app/config/database.php_. A SQL database dump is included for schema generation. The database dump also includes records for Revolver's built-in scripts in the **scripts** table. If you prefer, you can use the Artisan CLI to run the included migrations instead.
+Before you setup the Revolver Web Companion, ensure that your server environment is compatible with the technologies listed above.
 
-A seeder script (_app/database/seeds/SoundsSeeder.php_) is also provided for taking an existing set of .mp3 files on the server and processing them through the Revolver database.
+** Create database **
+MySQL database credentials should be supplied in _app/config/database.php_. A SQL database dump is included for schema generation. Importantly, this database dump includes records for Revolver's built-in scripts in the **scripts** table.
 
+A seeder script (_app/database/seeds/SoundsSeeder.php_) is provided for taking an existing set of .mp3 files on the server and processing them into the Revolver database.
+
+** Install dependencies **
+In the Revolver directory on your server, run _php composer.phar install_ on the command line to download the Laravel framework and necessary dependencies.
+
+** Apache DocumentRoot **
+You'll need to change your web server's document root path to the _public_ folder, as per the default behavior of the Laravel framework. In your Apache virtual host config, make sure your DocumentRoot is set to /var/www/public. If you do not wish to do this, consult the Laravel forums for [some workarounds](http://forums.laravel.io/viewtopic.php?pid=48975).
+
+** Set permissions **
 Ensure the following files/paths are writable on the server:
 
 * public/libraries/payload.js
@@ -69,7 +82,9 @@ Ensure the following files/paths are writable on the server:
 * public/libraries/user/sounds/
 * public/libraries/user/videos/
 
-Chat participants will each need a copy of **caveatPatchor.js** on their system, with line 16 edited to reflect the URL of your Revolver installation. The JS file should be dropped into Propane's _~/Library/Application Support/Propane/unsupported/_ folder. This file is what enables Propane to play media and process commands from your Revolver installation.
+** Client installation **
+
+Chat participants will each need a copy of **caveatPatchor.js** on their system (included), with line 16 edited to reflect the URL where you installed the Revolver Web Companion. The JS file should be dropped into Propane's _~/Library/Application Support/Propane/unsupported/_ folder. This file is what enables Propane to play media and process commands from your Revolver installation.
 
 ---
 

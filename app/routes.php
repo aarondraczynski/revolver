@@ -52,5 +52,5 @@ Route::post('a/platform/delete', 'PlatformController@delete');
 Route::get('/', 'LibraryController@getIndex');
 
 Route::get('install', function(){
-    return file_get_contents('../public/installer.php');
+  return file_get_contents('../public/installer.php');
 });

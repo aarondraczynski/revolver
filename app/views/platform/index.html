@@ -15,7 +15,7 @@
                     <p class="script-description">{{script.description}}</p>
 
                     <p class="script-created-at"><?= $messages['created_on'] ?> {{script.created_at_short}}</p>
-                    <a href="#" class="script-confirm-delete icon-cancel" title="Delete this script"></a>
+                    <a href="#" class="script-confirm-delete icon-cancel" title="<?= $messages['delete_script'] ?>"></a>
 
                     <input type="hidden" class="script-active" {{bindAttr value="script.active"}} />
                   </div>

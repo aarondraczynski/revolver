@@ -2587,8 +2587,8 @@ nav a:hover {
   color: #bbb;
 }
 
-#script-add {
-  padding: 5px 18px 5px 12px;
+#scripts-page .button {
+  padding: 5px 18px;
   margin: 5px 0 0 5px;
   background: #7e8e95;
   border-bottom: 1px solid #fff;
@@ -2603,16 +2603,21 @@ nav a:hover {
   text-transform: uppercase;
 }
 
-#script-add:hover {
+#scripts-page .button:hover {
   background: #707f85;
 }
 
-#script-add:active {
+#scripts-page .button:active {
   background: #5c6871;
 }
 
-#script-add span {
+#scripts-page .button span {
   color: #fff;
+  vertical-align: top;
+}
+
+#scripts-page #script-add {
+  padding-left: 14px;
 }
 
 #scripts {

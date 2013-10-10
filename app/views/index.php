@@ -13,6 +13,7 @@
   <meta name="description" content="<?= $messages['revolver_meta_description'] ?>">
   <meta name="keywords" content="<?= $messages['revolver_meta_keywords']?>">
   <meta name="author" content="<?= $messages['revolver_meta_author'] ?>">
+  <meta name="robots" content="noindex,nofollow">
 
   <!--[if lt IE 9]> 
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
