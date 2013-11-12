@@ -144,10 +144,6 @@ Campfire.Revolver = Class.create({
           body.innerHTML = '<span style="color: #d5312b"><em>' + soundDisplay + ' isn\'t a valid sound.</em></span>';
         }, true);
 
-        audioElem.addEventListener('suspend', function(e) {
-          body.innerHTML = '<span style="color: #d5312b"><em>Consequences will never be the same.</em></span>';
-        }, true);
-
         audioElem.addEventListener('dataunavailable', function(e) {
           body.innerHTML = '<span style="color: #d5312b"><em>Not my chair, not my problem.</em></span>';
         }, true);
@@ -369,10 +365,6 @@ Campfire.Revolver = Class.create({
           msg.style.padding = '6px 0 3px';
           imageElem.src = library + 'combo-error.gif';
           msg.innerHTML = '<span style="color: #d5312b"><em>"<strong>' + sound + '</strong>" isn\'t a valid sound.</em></span>';
-        }, true);
-
-        audioElem.addEventListener('suspend', function(e) {
-          msg.innerHTML = '<span style="color: #d5312b"><em>Consequences will never be the same.</em></span>';
         }, true);
 
         audioElem.addEventListener('dataunavailable', function(e) {
