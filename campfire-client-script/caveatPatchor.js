@@ -1,6 +1,6 @@
 /**
  * Revolver
- * (c) 2013 Aaron Draczynski
+ * (c) 2014 Aaron Draczynski
  * ================================
  * http://www.papermodelplane.com
  * http://twitter.com/developer
@@ -8,12 +8,12 @@
  * Revolver is freely distributed under the GNU General Public License.
  * ================================
  * This file goes into your /Users/youraccount/Library/Application Support/Propane/unsupported/ folder.
- * Change the address on line 16 ("base") to the URL where Revolver is installed for your organization.
+ * On line 16, specify the URL where the Revolver web companion is installed for your organization.
  * Restart Propane after installing or removing this script.
  *
  */
 
-var base = 'http://www.papermodelplane.net/',
+var base = 'https://www.papermodelplane.net/',
     volume = true;
 
 Campfire.Revolver = Class.create({
