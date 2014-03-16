@@ -10,14 +10,14 @@ by Aaron Draczynski
 
 Revolver is a suite of enhancements for [Slack](http://slack.com) and [Campfire](http://campfirenow.com) team chat services.
 
-* Upload and organize a library of animated GIFs, sounds, and video clips for playback within your chat room.
+* Upload and organize a library of animated GIFs, sounds, and video clips for playback in your chat room.
 * Play your uploaded media in chat by typing commands like "/sound laughtrack" or "/clip rickroll".
 * Write custom scripts and applications that are triggered by certain commands or keywords in messages.
 
 This repository contains code for both the Revolver web companion software (set it up on a server somewhere for your team) and the required client script (which each user will need to install).
 
 ### Revolver web companion
-The Revolver web companion makes it easy for your entire team to upload and manage media for use in chat.
+The web companion makes it easy for your entire team to upload and manage media for use in chat.
 
 * A centralized GIF, sound, and video library for your team.
 * Drag and drop to upload new media files to the library.
@@ -38,11 +38,15 @@ Inside of the web companion, you'll find the Platform management screen which ma
 
 ### Revolver client script
 
-**Slack**
-Slack users who want to experience Revolver-powered functionality in chat (like media playback) will need to install the client script, included in this repository. For anyone using the browser-based Slack web client, it can easily be installed as a userscript in your browser. If you prefer to use a standalone desktop app, you can generate a site-specific app for Slack using [Fluid for Mac](http://fluidapp.com/) and install the Revolver client script as a userscript there. For more details, see "Installing the client script" below.
+#### Slack
+Slack users who want to experience Revolver-powered functionality in chat (like media playback) will need to install the client script, included in this repository. For anyone using the browser-based Slack web client, it can easily be installed as a userscript in your browser. If you prefer to use a standalone desktop app, you can generate a site-specific app for Slack using [Fluid for Mac](http://fluidapp.com/) and install the Revolver client script as a userscript there.
 
-**Campfire**
-For Campfire users, Revolver is only compatible when used with the [Propane](http://propaneapp.com/) Campfire chat client for Mac. Propane provides limited userscripting support that Revolver needs. The Revolver client script for Propane, called **caveatPatchor.js** (included in this repository), needs to be installed by the user to handle Revolver-powered functionality like media playback and processing of your team's custom scripts. For more instructions, see "Installing the client script" below.
+_For more details, see "Installing the client script" below._
+
+#### Campfire
+For Campfire users, Revolver is only compatible when used with the [Propane](http://propaneapp.com/) Campfire chat client for Mac. Propane provides limited userscripting support that Revolver needs. The Revolver client script for Propane, called **caveatPatchor.js** (included in this repository), needs to be installed by the user to handle Revolver-powered functionality like media playback and processing of your team's custom scripts.
+
+_For more instructions, see "Installing the client script" below._
 
 ---
 
@@ -59,7 +63,7 @@ Revolver is powered by the following technologies:
 ---
 
 ### Installing the Revolver web companion
-Before you setup the Revolver web companion, ensure that your server environment is compatible with the technologies listed above.
+Before you setup the Revolver web companion, ensure that your server environment is compatible with the technologies listed above, then copy the files to your server.
 
 #### Create database
 MySQL database credentials should be supplied in _app/config/database.php_. A SQL database dump is included for schema generation. Importantly, this database dump includes records for Revolver's built-in scripts in the **scripts** table.
@@ -80,15 +84,17 @@ Ensure the following files/paths are writable on the server:
 * public/libraries/user/sounds/
 * public/libraries/user/videos/
 
-#### Installing the client script
+---
+
+### Installing the client script
 As mentioned above in the "Revolver client script" section, all chat participants will need to install a copy of the client script. This file is what enables Campfire or Slack to play media and process commands from your Revolver system.
 
 Regardless of which chat service your team uses, line 16 of the Revolver client script **must be edited** to reflect the URL where you installed the web companion for your organization. 
 
-**Slack**
+#### Slack
 After editing the base URL on line 16, Slack users who are running the Slack web client in their browser can install **revolver-client.js** as a userscript with the help of an extension like [Scriptish for Firefox](https://addons.mozilla.org/en-US/firefox/addon/scriptish/) or [Tampermonkey for Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en). The official Slack desktop app for Mac can't be configured to use Revolver; but if you prefer to use a standalone desktop app, you can generate your own site-specific app for Slack using [Fluid for Mac](http://fluidapp.com/) and install the Revolver client script as a userscript there.
 
-**Campfire**
+#### Campfire
 After editing the base URL on line 16, Campfire users will need to place **caveatPatchor.js** into Propane's _~/Library/Application Support/Propane/unsupported/_ folder.
 
 ---
