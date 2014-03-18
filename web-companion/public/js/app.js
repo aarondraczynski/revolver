@@ -1,6 +1,6 @@
 /**
  * Revolver
- * (c) 2013 Aaron Draczynski
+ * (c) 2014 Aaron Draczynski
  * ================================
  * http://www.papermodelplane.com
  * http://twitter.com/developer
@@ -40,9 +40,6 @@ Array.prototype.remove = function(elem) {
     revision: 12
   });
 
-  Revolver.ApplicationController = Ember.Controller.extend({
-    // Base stuff
-  });
 
   Revolver.Loader = Ember.Mixin.create({
     layout: Ember.Handlebars.compile('<div class="loading">Loading</div>'),
@@ -73,14 +70,7 @@ Array.prototype.remove = function(elem) {
     this.route('platform', {path: '/platform'});
     this.route('platformBuild', {path: '/platform/build'});
     this.route('platformImport', {path: '/platform/import'});
-    // this.route('statistics');
   });
-
-  // if (window.history && window.history.pushState) {
-  //   Revolver.Router.reopen({
-  //     location: 'history'
-  //   });
-  // }
 
   Revolver.IndexRoute = Ember.Route.extend({
     renderTemplate: function() {
@@ -90,7 +80,6 @@ Array.prototype.remove = function(elem) {
 
   Revolver.LibraryRoute = Ember.Route.extend({
     renderTemplate: function() {
-      // this.render('library', {outlet: 'main'});
       this.transitionTo('librarySounds');
     }
   });
@@ -634,15 +623,12 @@ Array.prototype.remove = function(elem) {
                   newAudio.addEventListener('play', function(e) {
                     button.className = 'play playing';
                     button.style.opacity = 1;
-                    oldTitle = document.title;
-                    document.title = String.fromCharCode(9658) + ' ' + oldTitle;
                   });
 
                   // Revert button class and page title when sound stops playing
                   newAudio.addEventListener('pause', function(e) {
                     button.className = 'play';
                     button.removeAttribute('style');
-                    document.title = oldTitle;
                   });
 
                   nRow.getElementsByTagName('article')[0].appendChild(newAudio);
@@ -839,14 +825,11 @@ Array.prototype.remove = function(elem) {
                 newVideo.play();
                 e.target.className = 'play playing';
                 e.target.nextElementSibling.className = 'duration playing';
-                oldTitle = document.title;
-                document.title = String.fromCharCode(9658) + ' ' + oldTitle;
               } else {
                 // Pause video and show controls
                 newVideo.pause();
                 e.target.className = 'play can-play';
                 e.target.nextElementSibling.className = 'duration';
-                document.title = oldTitle;
               }
             });
 
@@ -854,7 +837,6 @@ Array.prototype.remove = function(elem) {
             newVideo.addEventListener('ended', function(e) {
               e.target.nextElementSibling.className = 'play can-play';
               e.target.nextElementSibling.nextElementSibling.className = 'duration';
-              document.title = oldTitle;
             });
 
             // Build duration span

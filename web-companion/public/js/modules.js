@@ -1,6 +1,6 @@
 /**
  * Revolver
- * (c) 2013 Aaron Draczynski
+ * (c) 2014 Aaron Draczynski
  * ================================
  * http://www.papermodelplane.com
  * http://twitter.com/developer

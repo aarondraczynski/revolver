@@ -2,10 +2,10 @@
 
 return array(
   'revolver_brand' => 'Revolver',
-  'revolver_version_number' => '1.1.1',
-  'revolver_version_name' => 'Abbott',
-  'revolver_meta_description' => 'Revolver is a media player and scripting platform for 37signals\' Campfire chat service.',
-  'revolver_meta_keywords' => 'revolver, campfire, propane, scripting, bot, papermodelplane, aaron, draczynski',
+  'revolver_version_number' => '2.0',
+  'revolver_version_name' => 'Pender',
+  'revolver_meta_description' => 'Revolver is a media player and scripting platform for Slack and Campfire chat services.',
+  'revolver_meta_keywords' => 'revolver, slack, campfire, propane, scripting, bot, chat, papermodelplane',
   'revolver_meta_author' => 'Aaron Draczynski',
 
   'section_library' => 'Library',
